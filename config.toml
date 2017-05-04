@@ -1,0 +1,68 @@
+baseurl = "https://xweiwei.github.io/"
+relativeURLs = false
+languageCode = "zh-cn"
+title = "Weiwei's Blog"
+theme = "hugo-geo"
+paginate = 5
+# disqus.com Disqus是一家使用社交网络形式，向网络社区提供网站留言服务的公司。
+# disqusShortname = "shortcode-here"
+
+[Author]
+    name = "Weiwei"
+    bio = ""
+    avatar = "img/avatar.png"
+
+[taxonomies]
+	tag = "tags"
+	tutorial = "tutorials"
+
+[params]
+	# Render the rotating globe in the sidebar
+	showglobe = true
+
+	# Include favicon
+	favicon = "favicon.ico"
+ 	
+	# Google Analytics
+	# analytics = "SHORT-CODE-HERE"
+
+	# Email (optional)
+	email = "xweiwei520@gmail.com"
+	
+	# Header Title for the main page
+	header = "不能停息的脚步"
+	
+	# Sidebar profile picture
+	profilepic = "img/avatar.png"
+	
+	# Title/subtitle for the sidebar
+	title = "未知的世界"
+	subtitle = "神的过渡"
+	
+	# Social buttons for sidebar
+	# Each of these are optional
+	[[params.socialbuttons]]
+	faicon = "github"
+	url = "https://github.com/xweiwei"
+	[[params.socialbuttons]]
+	faicon = "twitter"
+	url = "https://twitter.com/xweiwei520"
+	# [[params.socialbuttons]]
+	# faicon = "linkedin"
+	# url = "https://linkedin.com"
+	# [[params.socialbuttons]]
+	# faicon = "google-plus"
+	# url = "https://plus.google.com/+YourID"
+
+	# Nav links below the profile picture
+	[[params.navlinks]]
+	name = "About"
+	url = "about"
+	
+	[[params.navlinks]]
+	name = "Blog"
+	url = "post/"
+	
+	[[params.navlinks]]
+	name = "Tutorials"
+	url = "tutorial/"
