@@ -4,65 +4,132 @@ languageCode = "zh-cn"
 title = "Weiwei's Blog"
 theme = "hugo-geo"
 paginate = 5
+copyright = "2016 - 2017"
 # disqus.com Disqus是一家使用社交网络形式，向网络社区提供网站留言服务的公司。
 # disqusShortname = "shortcode-here"
 
-[Author]
+[author]
     name = "Weiwei"
-    bio = ""
-    avatar = "img/avatar.png"
+    # bio = ""
+    # avatar = "img/avatar.png"
 
 [taxonomies]
 	tag = "tags"
 	tutorial = "tutorials"
 
 [params]
+    
 	# Render the rotating globe in the sidebar
-	showglobe = true
+	# showglobe = true
 
 	# Include favicon
 	favicon = "favicon.ico"
  	
-	# Google Analytics
-	# analytics = "SHORT-CODE-HERE"
-
-	# Email (optional)
-	email = "xweiwei520@gmail.com"
-	
-	# Header Title for the main page
-	header = "不能停息的脚步"
+	# Appears on index page - optional
+    tagline = "不能停息的脚步"
 	
 	# Sidebar profile picture
-	profilepic = "img/avatar.png"
+	profilepic = "img/weiwei.png"
 	
 	# Title/subtitle for the sidebar
 	title = "未知的世界"
 	subtitle = "神的过渡"
 	
-	# Social buttons for sidebar
-	# Each of these are optional
-	[[params.socialbuttons]]
-	faicon = "github"
-	url = "https://github.com/xweiwei"
-	[[params.socialbuttons]]
-	faicon = "twitter"
-	url = "https://twitter.com/xweiwei520"
-	# [[params.socialbuttons]]
-	# faicon = "linkedin"
-	# url = "https://linkedin.com"
-	# [[params.socialbuttons]]
-	# faicon = "google-plus"
-	# url = "https://plus.google.com/+YourID"
+	    
+    # Whether to show theme credits in the footer - Optional
+    attribution = true
 
-	# Nav links below the profile picture
-	[[params.navlinks]]
-	name = "About"
-	url = "about"
-	
-	[[params.navlinks]]
-	name = "Blog"
-	url = "post/"
-	
-	[[params.navlinks]]
-	name = "Tutorials"
-	url = "tutorial/"
+    # URL for twitter feed widget in the sidebar for posts - optional
+    # twitterwidgeturl = "https://twitter.com/xweiwei520"
+
+    # Array of all available social share buttons - optional
+    sharebuttons = [
+        "email",
+        "print",
+        "rss",
+        "facebook",
+        "twitter",
+        "linkedin",
+        "reddit",
+        "googleplus"
+    ]
+
+    # Array of additional CSS files to be loaded on every page - optional
+    css = []
+
+    # Array of additional Javascript files to be loaded on every page
+    scripts = []
+
+    # Locale information to be specified in Open Graph meta tags - optional
+    # See http://ogp.me/
+    oglocale = "zh_CN"
+
+    # For use with Facebook Developer Insights - optional
+    # See https://developers.facebook.com/docs/platforminsights/domains
+    # fbappid = "App-Id-Here"
+
+    # For use with Open Graph meta tags - optional
+    # Can be overridden by post front matter
+    # metaimage = "img/weiwei.png"
+
+    # Twitter account of the author, and website - optional
+    # See https://dev.twitter.com/cards/getting-started
+    # twittercreator = "@xweiwei520"
+    # twittersite = "@xweiwei520"
+
+    # Color of browser bar on mobile sites - optional
+    # Be sure to update if you tweak the site CSS
+    themecolor = "#2d4054"
+
+# Left hand sidebar and mobile nav link menu
+# Add or remove links as you see fit
+
+[[menu.sidenav]]
+    name = "Blog"
+    identifier = "blog"
+    url = "/"
+    weight = -1
+[[menu.sidenav]]
+    name = "Tutorials"
+    identifier = "tutorials"
+    url = "/tutorial/"
+    weight = 1
+    
+[[menu.sidenav]]
+    name = "About"
+    identifier = "about"
+    url = "/about"
+    weight = 2
+
+# Social sharing icons for left hand sidebar
+# Links here appear in the footer on mobile
+# Add or remove as you see fit
+[[menu.social]]    
+    name = "GitHub"
+    url = "https://www.github.com/xweiwei"
+    pre = '<i class="fa fa-github" aria-hidden="true"></i>'
+    weight = 0
+
+[[menu.social]]
+    name = "Twitter"
+    url = "https://twitter.com/xweiwei520"
+    pre = '<i class="fa fa-twitter" aria-hidden="true"></i>'
+    weight = 1
+
+[[menu.social]]    
+    name = "E-Mail"
+    url = "mailto:xweiwei520@gmail.com"
+    pre = '<i class="fa fa-envelope-o" aria-hidden="true"></i>'
+    weight = 2
+
+# Righthand sidebar menu appears on posts and tutorial pages
+# [[menu.sidebar]]
+#    pre = '<img src="/img/do.png" class="responsive pure-img">'
+#    url = "https://m.do.co/c/78ae6b852549"
+
+# [[menu.footer]]
+#    name = "Link 1"
+#    url = "#"
+# [[menu.footer]]
+#    name = "Link 2"
+#    url = "#"
