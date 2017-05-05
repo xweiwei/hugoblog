@@ -16,6 +16,7 @@ index = true
 
 # KGDB
 
+kgdb提供了一种使用 gdb调试 Linux 内核的机制。使用KGDB可以象调试普通的应用程序那样，在内核中进行设置断点、检查变量值、单步跟踪程序运行等操作。
 
 # 编译内核
 
@@ -73,18 +74,29 @@ target remote localhost:1234
 
 
 # 优化问题
-但是在编译的时候默认是-O2优化，所以查看变量时会出现`optimized out`
+
+但是在调试的时候想查看具体的某个变量的时候，会发现：
 ```
 (gdb) p copied
 $1 = <optimized out>
 
 ```
 
+但是在编译的时候默认是-O2优化，所以查看变量时会出现`optimized out`
 
-用-O0的选项重新编译内核。
+
 > gdb调试程序的时候打印变量值会出现<value optimized out> 情况,可以在gcc编译的时候加上 -O0参数项,意思是不进行编译优化,调试的时候就会顺畅了,运行流程不会跳来跳去的,发布项目的时候记得不要在使用 -O0参数项,gcc 默认编译或加上-O2优化编译会提高程序运行速度. 
 
-但是在修改成-O0之后，编译内核代码会出现问题
+
+[gdb 关于value optimized out](http://dsl000522.blog.sohu.com/180439264.html)
+
+并且很多时候程序跑的时候，代码也是对应不上的。
+
+
+尝试用-O0的选项重新编译内核。
+
+
+这个时候，编译内核代码会出现问题
 
 ```
 In file included from ./arch/arm64/include/asm/bitops.h:19:0,
@@ -132,24 +144,13 @@ include/linux/bug.h:84:21: note: in expansion of macro 'BUILD_BUG_ON_MSG'
 
 ```
 
-内核中有大量的代码是根据优化的，所以关闭所有优化会出现问题。
-这里指定-O(-O1)
-
-> 另外开始编译内核之前请注意Linux源码目录下Makefile中的优化选项，默认的Linux内核的编译都以-O2的优化级别进行。在这个优化级别之下，编译器要对内核中的某些代码的执行顺序进行改动，所以在调试时会出现程序语句执行顺序与代码中的顺序不一致的情况。可以把Makefile中的-O2选项改为-O,但不可去掉-O，不然编译不过:
-```
-ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
-KBUILD_CFLAGS   += -Os
-else
-#KBUILD_CFLAGS   += -O2
-KBUILD_CFLAGS   += -O
-endif
-
-```
-[gdb 关于value optimized out](http://dsl000522.blog.sohu.com/180439264.html)
+内核代码很多地方就是依赖优化的，如果关闭的话，编译不过。
 
 
-编译kernel不使用-O2的补丁
+编译kernel不使用-O2的补丁，不过，没有尝试这个方法。
 [build kernel without -O2 option](https://sourceware.org/ml/gdb/2010-12/msg00009.html)
+
+最后一个可以靠谱的方法就是在部分代码中关闭优化。
 
 # 参考
 
