@@ -1,5 +1,5 @@
 baseurl = "https://xweiwei.github.io/"
-relativeURLs = false
+relativeURLs = true
 languageCode = "zh-cn"
 title = "Weiwei's Blog"
 theme = "hugo-geo"
