@@ -2,7 +2,7 @@
 css = []
 date = "2017-07-07T10:59:22+08:00"
 description = ""
-draft = true
+draft = false
 highlight = true
 metaimage = "/path/to/img.png"
 metavideo = "/path/to/video.mp4"
